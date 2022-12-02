@@ -6,12 +6,14 @@ import Text from './Text';
 
 const styles = StyleSheet.create({
   errorText: {
-    marginTop: 5,
+    marginTop: 0,
   },
 });
 
 const FormikTextInput = ({ name, ...props }) => {
   const [field, meta, helpers] = useField(name);
+
+  // Check if the field is touched and the error message is present
   const showError = meta.touched && meta.error;
 
   return (
@@ -23,7 +25,8 @@ const FormikTextInput = ({ name, ...props }) => {
         error={showError}
         {...props}
       />
-      {showError && <Text style={styles.errorText}>{meta.error}</Text>}
+      {/* Show the error message if the value of showError variable is true  */}
+      {showError && <Text color="textError" style={styles.errorText}>{meta.error}</Text>}
     </>
   );
 };

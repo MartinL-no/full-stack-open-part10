@@ -3,6 +3,7 @@ const theme = {
     textPrimary: "black",
     textSecondary: '#404040',
     textAccent: 'white',
+    textError: "#d73a4a",
     primary: '#e1e4e8',
     secondary: 'white',
     accent: '#0366d6'

@@ -10,14 +10,17 @@ const styles = StyleSheet.create({
     fontWeight: theme.fontWeights.normal,
     letterSpacing: theme.letterSpacing.normal
   },
+  colorPrimary: {
+    color: theme.colors.primary,
+  },
   colorTextSecondary: {
     color: theme.colors.textSecondary,
   },
   colorTextAccent: {
     color: theme.colors.textAccent,
   },
-  colorPrimary: {
-    color: theme.colors.primary,
+  colorTextError: {
+    color: theme.colors.textError,
   },
   colorSecondary: {
     color: theme.colors.secondary,
@@ -31,25 +34,22 @@ const styles = StyleSheet.create({
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
-  center: {
-    textAlign: 'center',
-  },
   marginBottomWide: {
     marginBottom: theme.marginBottom.marginBottomWide,
   },
 });
 
-const Text = ({ color, fontSize, fontWeight, style, textAlign, marginBottom, ...props }) => {
+const Text = ({ color, fontSize, fontWeight, style, marginBottom, ...props }) => {
   const textStyle = [
     styles.text,
-    color === 'textSecondary' && styles.colorTextSecondary,
+    color === 'textError' && styles.colorTextError,
     color === 'textAccent' && styles.colorTextAccent,
+    color === 'textSecondary' && styles.colorTextSecondary,
     color === 'primary' && styles.colorPrimary,
     color === 'secondary' && styles.colorPrimary,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'semiBold' && styles.fontWeightSemiBold,
     fontWeight === 'bold' && styles.fontWeightBold,
-    textAlign === 'center' && styles.center,
     marginBottom === 'wide' && styles.marginBottomWide, 
     style,
   ];
