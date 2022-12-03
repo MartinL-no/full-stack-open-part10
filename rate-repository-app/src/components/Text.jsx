@@ -37,9 +37,12 @@ const styles = StyleSheet.create({
   marginBottomWide: {
     marginBottom: theme.marginBottom.marginBottomWide,
   },
+  textAlignCenter: {
+    textAlign: theme.textAlign.textAlignCenter,
+  },
 });
 
-const Text = ({ color, fontSize, fontWeight, style, marginBottom, ...props }) => {
+const Text = ({ color, fontSize, fontWeight, style, marginBottom, textAlign, ...props }) => {
   const textStyle = [
     styles.text,
     color === 'textError' && styles.colorTextError,
@@ -50,7 +53,8 @@ const Text = ({ color, fontSize, fontWeight, style, marginBottom, ...props }) =>
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'semiBold' && styles.fontWeightSemiBold,
     fontWeight === 'bold' && styles.fontWeightBold,
-    marginBottom === 'wide' && styles.marginBottomWide, 
+    marginBottom === 'wide' && styles.marginBottomWide,
+    textAlign === 'center' && styles.textAlignCenter,
     style,
   ];
 
