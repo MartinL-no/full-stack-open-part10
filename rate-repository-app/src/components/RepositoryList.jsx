@@ -14,9 +14,8 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 const RepositoryList = () => {
   const { data } = useQuery(GET_REPOSITORIES);
-  console.log(data);
 
-  const repositoryNodes = data.repositories
+  const repositoryNodes = data
     ? data.repositories.edges.map(edge => edge.node)
     : [];
 
