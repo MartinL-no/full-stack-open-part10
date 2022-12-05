@@ -49,11 +49,12 @@ const styles = StyleSheet.create({
 
 const RepositoryItem = ({ item }) => {
   return (
-    <View style={styles.itemContainer}>
+    <View style={styles.itemContainer} testID="repositoryItem">
       <View style={styles.headerContainer}>
         <Image
           style={styles.image}
           source={{ uri: item.ownerAvatarUrl }}
+          accessibilityRole="img"
         />
         <View style={styles.headingsContainer}>
           <Text marginBottom='wide' fontSize='subheading' fontWeight='bold'>{item.fullName}</Text>
