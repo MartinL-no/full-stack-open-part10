@@ -2,8 +2,8 @@ import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { Link } from 'react-router-native';
 import Constants from 'expo-constants';
 
-import useSignOut from '../hooks/useSignOut';
-import AppBarTab from './AppBarTab';
+import useSignOut from '../../hooks/useSignOut';
+import { AppBarTab } from './AppBarTab';
 
 const styles = StyleSheet.create({
   container: {

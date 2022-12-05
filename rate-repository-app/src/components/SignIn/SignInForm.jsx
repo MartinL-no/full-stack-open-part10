@@ -1,8 +1,8 @@
 import { View, StyleSheet, Pressable } from 'react-native';
 
-import Text from './Text';
-import FormikTextInput from './FormikTextInput';
-import theme from '../theme';
+import Text from '../Text';
+import { FormikTextInput } from './FormikTextInput';
+import theme from '../../theme';
 
 const styles = StyleSheet.create({
   formContainer: {
@@ -31,4 +31,4 @@ const SignInForm = ({ onSubmit }) => {
   );
 };
 
-export default SignInForm;
+export { SignInForm };

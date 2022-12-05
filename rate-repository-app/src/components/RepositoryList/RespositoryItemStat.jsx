@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import Text from './Text';
+import Text from '../Text';
 
 const RepositoryItemStat = ({ name, stat }) => {
   const convertNumber = (number) => {
@@ -19,4 +19,4 @@ const RepositoryItemStat = ({ name, stat }) => {
   );
 };
 
-export default RepositoryItemStat;
+export { RepositoryItemStat };

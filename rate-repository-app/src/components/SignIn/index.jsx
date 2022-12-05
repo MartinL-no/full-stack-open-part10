@@ -2,9 +2,9 @@ import { View, StyleSheet } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
-import useSignIn from '../hooks/useSignIn';
-import SignInForm from './SignInForm';
-import theme from '../theme';
+import useSignIn from '../../hooks/useSignIn';
+import { SignInForm } from './SignInForm';
+import theme from '../../theme';
 import { useNavigate } from 'react-router-native';
 
 const styles = StyleSheet.create({

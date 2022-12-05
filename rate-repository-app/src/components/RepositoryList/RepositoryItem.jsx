@@ -1,7 +1,7 @@
 import { View, Image, StyleSheet } from 'react-native';
-import Text from './Text';
-import theme from '../theme';
-import RepositoryItemStat from './RespositoryItemStat';
+import Text from '../Text';
+import theme from '../../theme';
+import { RepositoryItemStat } from './RespositoryItemStat';
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -71,4 +71,4 @@ const RepositoryItem = ({ item }) => {
   );
 };
 
-export default RepositoryItem;
+export { RepositoryItem };
