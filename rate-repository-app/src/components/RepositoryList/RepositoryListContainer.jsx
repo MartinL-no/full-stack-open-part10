@@ -31,4 +31,4 @@ const RepositoryListContainer = ({ repositories }) => {
   );
 };
 
-export { RepositoryListContainer };
+export { RepositoryListContainer, ItemSeparator };
