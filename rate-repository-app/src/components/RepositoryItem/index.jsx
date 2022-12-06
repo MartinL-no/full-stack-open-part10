@@ -2,6 +2,7 @@ import { View, Image, StyleSheet } from 'react-native';
 import Text from '../Text';
 import theme from '../../theme';
 import { RepositoryItemStat } from './RespositoryItemStat';
+import RepositoryItemButton from './RepositoryItemButton';
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, gitHubButton }) => {
   return (
     <View style={styles.itemContainer} testID="repositoryItem">
       <View style={styles.headerContainer}>
@@ -68,8 +69,9 @@ const RepositoryItem = ({ item }) => {
         <RepositoryItemStat name='Reviews' stat={item.reviewCount} />
         <RepositoryItemStat name='Rating' stat={item.ratingAverage} />
       </View>
+      {gitHubButton && <RepositoryItemButton url={item.url} />}
     </View>
   );
 };
 
-export { RepositoryItem };
+export default RepositoryItem;

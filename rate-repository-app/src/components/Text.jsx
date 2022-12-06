@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSizes.body,
     fontFamily: theme.fonts.main,
     fontWeight: theme.fontWeights.normal,
-    letterSpacing: theme.letterSpacing.normal
-  },
+    letterSpacing: theme.letterSpacing.normal,
+   },
   colorPrimary: {
     color: theme.colors.primary,
   },

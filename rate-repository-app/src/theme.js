@@ -30,7 +30,7 @@ const theme = {
     marginBottomWide: 6,
   },
   letterSpacing: {
-    normal: 0,
+    normal: -0.25,
   },
   textAlign: {
     textAlignCenter: 'center',

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     marginBottom: 13,
     borderRadius: 3,
     overflow: "hidden",
-    padding: 9,
+    padding: 12,
     textAlign: "center"
   }
 });

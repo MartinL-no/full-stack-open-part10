@@ -10,7 +10,7 @@ const TextInput = ({ style,  error, ...props }) => {
       borderColor: error ? theme.colors.textError : 'grey',
       borderWidth: 1,
       borderRadius: 3,
-      padding: 8
+      padding: 12
     }
   });
 
