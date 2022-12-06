@@ -10,12 +10,12 @@ const useSignIn = () => {
 
 
   const signIn = async ({ username, password }) => {
-    const { data } = await mutate({ variables: { username , password }});
-    await authStorage.setAccessToken(data.authenticate.accessToken);
+    const response = await mutate({ variables: { username , password }});
+    await authStorage.setAccessToken(response.data.authenticate.accessToken);
     apolloClient.resetStore();
     console.log(await authStorage.getAccessToken());
 
-    return mutate({ variables: { username , password }});
+    return response;
   };
 
   return [signIn, result];

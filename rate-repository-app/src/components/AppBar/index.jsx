@@ -33,6 +33,10 @@ const AppBar = () => {
         <Link to="/signin">
           <AppBarTab>Sign In</AppBarTab>
         </Link>}
+        {!loginStatus && 
+        <Link to="/signup">
+          <AppBarTab>Sign Up</AppBarTab>
+        </Link>}
         {loginStatus && 
           <Pressable onPress={() => navigate('/create-review')}>
             <AppBarTab>Create a review</AppBarTab>
