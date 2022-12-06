@@ -1,5 +1,5 @@
 import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
-import { Link } from 'react-router-native';
+import { Link, useNavigate } from 'react-router-native';
 import Constants from 'expo-constants';
 
 import useSignOut from '../../hooks/useSignOut';
@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
+  const navigate = useNavigate();
   const [loginStatus, signOut] = useSignOut();
 
   const handleSignOut = () => {
@@ -32,6 +33,11 @@ const AppBar = () => {
         <Link to="/signin">
           <AppBarTab>Sign In</AppBarTab>
         </Link>}
+        {loginStatus && 
+          <Pressable onPress={() => navigate('/create-review')}>
+            <AppBarTab>Create a review</AppBarTab>
+          </Pressable>
+        }
         {loginStatus && 
           <Pressable onPress={() => handleSignOut()}>
             <AppBarTab>Sign Out</AppBarTab>

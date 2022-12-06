@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 const AppBarTab = (props) => {
   return (
     <>
-      <Text style={styles.text} color='textAccent' fontWeight='bold'>{props.children}</Text>
+      <Text style={styles.text} color='textAccent' fontWeight='semiBold'>{props.children}</Text>
     </>      
   )
 };

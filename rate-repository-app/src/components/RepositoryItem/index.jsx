@@ -1,8 +1,9 @@
 import { View, Image, StyleSheet } from 'react-native';
+
 import Text from '../Text';
 import theme from '../../theme';
 import { RepositoryItemStat } from './RespositoryItemStat';
-import RepositoryItemButton from './RepositoryItemButton';
+import { GitHubLinkButton } from './RepositoryItemButton';
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -69,7 +70,7 @@ const RepositoryItem = ({ item, gitHubButton }) => {
         <RepositoryItemStat name='Reviews' stat={item.reviewCount} />
         <RepositoryItemStat name='Rating' stat={item.ratingAverage} />
       </View>
-      {gitHubButton && <RepositoryItemButton url={item.url} />}
+      {gitHubButton && <GitHubLinkButton url={item.url} />}
     </View>
   );
 };
