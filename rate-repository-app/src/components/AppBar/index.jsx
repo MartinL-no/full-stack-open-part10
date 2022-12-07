@@ -33,7 +33,7 @@ const AppBar = () => {
         <Link to="/signin">
           <AppBarTab>Sign In</AppBarTab>
         </Link>}
-        {!loginStatus && 
+        {!loginStatus &&
         <Link to="/signup">
           <AppBarTab>Sign Up</AppBarTab>
         </Link>}

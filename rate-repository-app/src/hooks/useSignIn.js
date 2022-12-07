@@ -8,7 +8,6 @@ const useSignIn = () => {
   const [mutate, result] = useMutation(LOGIN);
   const authStorage = useAuthStorage();
 
-
   const signIn = async ({ username, password }) => {
     const response = await mutate({ variables: { username , password }});
     await authStorage.setAccessToken(response.data.authenticate.accessToken);

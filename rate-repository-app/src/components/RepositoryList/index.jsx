@@ -1,11 +1,20 @@
+import { useState } from 'react';
 import useRepositories from '../../hooks/useRepositories';
 import { RepositoryListContainer } from './RepositoryListContainer';
 
 const RepositoryList = () => {
-  const [repositories] = useRepositories();
-  console.log(repositories);
+  const [orderBy, setOrderBy] = useState('CREATED_AT');
+  const [orderDirection, setOrderDirection] = useState('DESC');
+  const [repositories] = useRepositories(orderBy, orderDirection);
 
-  return <RepositoryListContainer repositories={repositories} />;
+  return (
+    <RepositoryListContainer
+      repositories={repositories}
+      orderBy={orderBy}
+      setOrderBy={setOrderBy}
+      setOrderDirection={setOrderDirection}
+    />
+  )
 };
 
 export default RepositoryList;

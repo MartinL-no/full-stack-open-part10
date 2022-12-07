@@ -1,7 +1,9 @@
 import { FlatList, View, StyleSheet, Pressable } from 'react-native';
 import { useNavigate } from 'react-router-native';
 
+import { RepositoryListPicker } from './RepositoryListPicker';
 import RepositoryItem from '../RepositoryItem';
+import { useState } from 'react';
 
 const styles = StyleSheet.create({
   separator: {
@@ -11,7 +13,9 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ repositories }) => {
+const RepositoryListContainer = ({ repositories, orderBy, setOrderBy, setOrderDirection }) => {
+  const [buttonLabel, setButtonLabel] = useState('Latest repositories');
+
   const navigate = useNavigate();
 
   const repositoryNodes = repositories
@@ -27,6 +31,15 @@ const RepositoryListContainer = ({ repositories }) => {
           <RepositoryItem item={item} key={item.id} />
         </Pressable>
       )}
+      ListHeaderComponent={() => (
+      <RepositoryListPicker
+        buttonLabel={buttonLabel}
+        setButtonLabel={setButtonLabel}
+        orderBy={orderBy}
+        setOrderBy={setOrderBy}
+        setOrderDirection={setOrderDirection}
+      />
+    )}
     />
   );
 };
