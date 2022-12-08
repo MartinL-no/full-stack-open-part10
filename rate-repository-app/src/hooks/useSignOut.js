@@ -13,7 +13,7 @@ const useSignOut = () => {
     await authStorage.removeAccessToken();
     apolloClient.resetStore();
   };
-  
+
   return [loginStatus, signOut];
 };
 

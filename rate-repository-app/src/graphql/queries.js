@@ -1,10 +1,22 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-import { REPOSITORY_DETAILS, REVIEW_DETAILS } from './fragments';
+import { REPOSITORY_DETAILS, REVIEW_DETAILS } from "./fragments";
 
 export const GET_REPOSITORIES = gql`
-  query GetRepositories($first: Int, $after: String, $orderDirection: OrderDirection, $orderBy: AllRepositoriesOrderBy, $searchKeyword: String) {
-    repositories(first: $first, after: $after, orderDirection: $orderDirection, orderBy: $orderBy, searchKeyword: $searchKeyword) {
+  query GetRepositories(
+    $first: Int
+    $after: String
+    $orderDirection: OrderDirection
+    $orderBy: AllRepositoriesOrderBy
+    $searchKeyword: String
+  ) {
+    repositories(
+      first: $first
+      after: $after
+      orderDirection: $orderDirection
+      orderBy: $orderBy
+      searchKeyword: $searchKeyword
+    ) {
       totalCount
       edges {
         node {
@@ -23,16 +35,16 @@ export const GET_REPOSITORIES = gql`
 `;
 
 export const GET_REPOSITORY = gql`
-  query GetRepository($repositoryId: ID!){
+  query GetRepository($repositoryId: ID!) {
     repository(id: $repositoryId) {
-      ...RepositoryDetails,
+      ...RepositoryDetails
     }
   }
   ${REPOSITORY_DETAILS}
 `;
 
 export const GET_REVIEWS = gql`
-  query GetReviews($repositoryId: ID!, $first: Int, $after: String){
+  query GetReviews($repositoryId: ID!, $first: Int, $after: String) {
     repository(id: $repositoryId) {
       id
       fullName
@@ -56,7 +68,11 @@ export const GET_REVIEWS = gql`
 `;
 
 export const GET_CURRENT_USER = gql`
-  query getCurrentUser($includeReviews: Boolean = false, $first: Int, $after: String) {
+  query getCurrentUser(
+    $includeReviews: Boolean = false
+    $first: Int
+    $after: String
+  ) {
     me {
       id
       username
@@ -65,6 +81,7 @@ export const GET_CURRENT_USER = gql`
         edges {
           node {
             ...ReviewDetails
+            repositoryId
           }
           cursor
         }

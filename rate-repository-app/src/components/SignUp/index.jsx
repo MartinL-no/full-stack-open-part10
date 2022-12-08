@@ -1,8 +1,8 @@
-import { useNavigate } from 'react-router-native';
+import { useNavigate } from "react-router-native";
 
-import useSignIn from '../../hooks/useSignIn';
-import useSignUp from '../../hooks/useSignUp';
-import SignUpContainer from './SignUpContainer';
+import useSignIn from "../../hooks/useSignIn";
+import useSignUp from "../../hooks/useSignUp";
+import SignUpContainer from "./SignUpContainer";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -16,12 +16,12 @@ const SignUp = () => {
       await signUp({ username, password });
       const { data } = await signIn({ username, password });
 
-      if (data) navigate('/');
+      if (data) navigate("/");
     } catch (e) {
       console.log(e);
     }
   };
-  
+
   return <SignUpContainer onSubmit={onSubmit} />;
 };
 

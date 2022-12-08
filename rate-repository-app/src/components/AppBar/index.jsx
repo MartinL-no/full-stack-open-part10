@@ -1,9 +1,9 @@
-import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
-import { Link, useNavigate } from 'react-router-native';
-import Constants from 'expo-constants';
+import { View, StyleSheet, ScrollView, Pressable } from "react-native";
+import { Link, useNavigate } from "react-router-native";
+import Constants from "expo-constants";
 
-import useSignOut from '../../hooks/useSignOut';
-import { AppBarTab } from './AppBarTab';
+import useSignOut from "../../hooks/useSignOut";
+import { AppBarTab } from "./AppBarTab";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,8 +20,8 @@ const AppBar = () => {
   const [loginStatus, signOut] = useSignOut();
 
   const handleSignOut = () => {
-    signOut()
-  }
+    signOut();
+  };
 
   return (
     <View style={styles.container}>
@@ -29,32 +29,34 @@ const AppBar = () => {
         <Link to="/">
           <AppBarTab>Repositories</AppBarTab>
         </Link>
-        {!loginStatus && 
-        <Link to="/signin">
-          <AppBarTab>Sign In</AppBarTab>
-        </Link>}
-        {!loginStatus &&
-        <Link to="/signup">
-          <AppBarTab>Sign Up</AppBarTab>
-        </Link>}
-        {loginStatus && 
-          <Pressable onPress={() => navigate('/create-review')}>
+        {!loginStatus && (
+          <Link to="/signin">
+            <AppBarTab>Sign In</AppBarTab>
+          </Link>
+        )}
+        {!loginStatus && (
+          <Link to="/signup">
+            <AppBarTab>Sign Up</AppBarTab>
+          </Link>
+        )}
+        {loginStatus && (
+          <Pressable onPress={() => navigate("/create-review")}>
             <AppBarTab>Create a review</AppBarTab>
           </Pressable>
-        }
-        {loginStatus && 
-          <Pressable onPress={() => navigate('/my-reviews')}>
+        )}
+        {loginStatus && (
+          <Pressable onPress={() => navigate("/my-reviews")}>
             <AppBarTab>My reviews</AppBarTab>
           </Pressable>
-        }
-        {loginStatus && 
+        )}
+        {loginStatus && (
           <Pressable onPress={() => handleSignOut()}>
             <AppBarTab>Sign Out</AppBarTab>
           </Pressable>
-        }
+        )}
       </ScrollView>
     </View>
-  ) 
+  );
 };
 
 export default AppBar;

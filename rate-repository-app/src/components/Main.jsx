@@ -1,19 +1,19 @@
-import { StyleSheet, View } from 'react-native';
-import { Route, Routes, Navigate } from 'react-router-native';
+import { StyleSheet, View } from "react-native";
+import { Route, Routes, Navigate } from "react-router-native";
 
-import theme from '../theme';
-import AppBar from './AppBar';
-import CreateReview from './CreateReview';
-import MyReviews from './MyReviews';
-import RepositoryList from './RepositoryList'
-import SignIn from './SignIn';
-import SignUp from './SignUp';
-import SingleRepository from './SingleRepository';
+import theme from "../theme";
+import AppBar from "./AppBar";
+import CreateReview from "./CreateReview";
+import MyReviews from "./MyReviews/index";
+import RepositoryList from "./RepositoryList";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import SingleRepository from "./SingleRepository";
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.primary,
-    height: '100%',
+    height: "100%",
   },
 });
 

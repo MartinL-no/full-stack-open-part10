@@ -1,9 +1,9 @@
-import { FlatList, View, StyleSheet, Pressable } from 'react-native';
-import { useNavigate } from 'react-router-native';
+import { FlatList, View, StyleSheet, Pressable } from "react-native";
+import { useNavigate } from "react-router-native";
 
-import { RepositoryListPicker } from './RepositoryListPicker';
-import RepositoryItem from '../RepositoryItem';
-import SearchBar from './SearchBar';
+import { RepositoryListPicker } from "./RepositoryListPicker";
+import RepositoryItem from "../RepositoryItem";
+import SearchBar from "./SearchBar";
 
 const styles = StyleSheet.create({
   separator: {
@@ -27,7 +27,7 @@ const RepositoryListContainer = ({
   const navigate = useNavigate();
 
   const repositoryNodes = repositories
-    ? repositories.edges.map(edge => edge.node)
+    ? repositories.edges.map((edge) => edge.node)
     : [];
 
   return (

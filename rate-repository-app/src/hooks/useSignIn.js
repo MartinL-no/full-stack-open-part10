@@ -9,10 +9,9 @@ const useSignIn = () => {
   const authStorage = useAuthStorage();
 
   const signIn = async ({ username, password }) => {
-    const response = await mutate({ variables: { username , password }});
+    const response = await mutate({ variables: { username, password } });
     await authStorage.setAccessToken(response.data.authenticate.accessToken);
     apolloClient.resetStore();
-    console.log(await authStorage.getAccessToken());
 
     return response;
   };
@@ -20,4 +19,4 @@ const useSignIn = () => {
   return [signIn, result];
 };
 
-export default useSignIn
+export default useSignIn;

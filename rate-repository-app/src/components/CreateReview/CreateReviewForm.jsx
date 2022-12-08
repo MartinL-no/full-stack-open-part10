@@ -1,7 +1,7 @@
-import { View, StyleSheet, Pressable } from 'react-native';
+import { View, StyleSheet, Pressable } from "react-native";
 
-import FormikTextInput from '../FormikTextInput';
-import FormButton from '../FormButton';
+import FormikTextInput from "../FormikTextInput";
+import FormButton from "../Button";
 
 const styles = StyleSheet.create({
   formContainer: {
@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
 });
 
 const CreateReviewForm = ({ onSubmit }) => {
-
   return (
     <View style={styles.formContainer}>
       <FormikTextInput name="ownerName" placeholder="Repository owner name" />
@@ -21,7 +20,7 @@ const CreateReviewForm = ({ onSubmit }) => {
         <FormButton>Create a review</FormButton>
       </Pressable>
     </View>
-  )
+  );
 };
 
 export { CreateReviewForm };

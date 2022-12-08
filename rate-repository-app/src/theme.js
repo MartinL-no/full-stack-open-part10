@@ -3,12 +3,12 @@ import { Platform } from "react-native";
 const theme = {
   colors: {
     textPrimary: "black",
-    textSecondary: '#404040',
-    textAccent: 'white',
+    textSecondary: "#404040",
+    textAccent: "white",
     textError: "#d73a4a",
-    primary: '#e1e4e8',
-    secondary: 'white',
-    accent: '#0366d6'
+    primary: "#e1e4e8",
+    secondary: "white",
+    accent: "#0366d6",
   },
   fontSizes: {
     body: 14,
@@ -16,15 +16,15 @@ const theme = {
   },
   fonts: {
     main: Platform.select({
-      android: 'Roboto',
-      ios: 'Arial',
-      default: 'System',
+      android: "Roboto",
+      ios: "Arial",
+      default: "System",
     }),
   },
   fontWeights: {
-    normal: '400',
-    semiBold: '500',
-    bold: '700',
+    normal: "400",
+    semiBold: "500",
+    bold: "700",
   },
   marginBottom: {
     marginBottomWide: 6,
@@ -33,7 +33,7 @@ const theme = {
     normal: -0.25,
   },
   textAlign: {
-    textAlignCenter: 'center',
+    textAlignCenter: "center",
   },
 };
 

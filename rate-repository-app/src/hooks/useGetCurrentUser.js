@@ -1,12 +1,15 @@
-import { useQuery } from '@apollo/client';
+import { useQuery } from "@apollo/client";
 
-import { GET_CURRENT_USER } from '../graphql/queries';
+import { GET_CURRENT_USER } from "../graphql/queries";
 
 const useGetCurrentUser = (variables) => {
-  const { data, loading, fetchMore, ...result } = useQuery(GET_CURRENT_USER, {
-    variables,
-    fetchPolicy: 'cache-and-network',
-  });
+  const { data, loading, fetchMore, refetch, ...result } = useQuery(
+    GET_CURRENT_USER,
+    {
+      variables,
+      fetchPolicy: "cache-and-network",
+    }
+  );
 
   const handleFetchMore = () => {
     const canFetchMore = !loading && data?.me.reviews.pageInfo.hasNextPage;
@@ -30,7 +33,8 @@ const useGetCurrentUser = (variables) => {
     },
     currentUserReviews: data?.me.reviews,
     fetchMore: handleFetchMore,
-    ...result
+    refetch,
+    ...result,
   };
 };
 

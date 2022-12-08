@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native';
-import { useField } from 'formik';
+import { StyleSheet } from "react-native";
+import { useField } from "formik";
 
-import TextInput from './TextInput';
-import Text from './Text';
+import TextInput from "./TextInput";
+import Text from "./Text";
 
 const styles = StyleSheet.create({
   errorText: {
@@ -19,14 +19,18 @@ const FormikTextInput = ({ name, ...props }) => {
   return (
     <>
       <TextInput
-        onChangeText={value => helpers.setValue(value)}
+        onChangeText={(value) => helpers.setValue(value)}
         onBlur={() => helpers.setTouched(true)}
         value={field.value}
         error={showError}
         {...props}
       />
       {/* Show the error message if the value of showError variable is true  */}
-      {showError && <Text color="textError" style={styles.errorText}>{meta.error}</Text>}
+      {showError && (
+        <Text color="textError" style={styles.errorText}>
+          {meta.error}
+        </Text>
+      )}
     </>
   );
 };

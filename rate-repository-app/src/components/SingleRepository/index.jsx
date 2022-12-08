@@ -1,23 +1,24 @@
 import { FlatList } from "react-native";
 import { useParams } from "react-router-native";
 
-import useRepository from '../../hooks/useRepository';
-import useReviews from '../../hooks/useReviews';
-import RespositoryItem from '../RepositoryItem';
-import { ReviewItem } from "./ReviewItem";
+import useRepository from "../../hooks/useRepository";
+import useReviews from "../../hooks/useReviews";
+import RespositoryItem from "../RepositoryItem";
+import { ReviewItem } from "../ReviewItem";
 import { ItemSeparator } from "../RepositoryList/RepositoryListContainer";
 
 const SingleRepository = () => {
   const { id } = useParams();
   const { repository, loading } = useRepository({ repositoryId: id });
-  const { reviews, loadingReviews, fetchMore } = useReviews({ first: 3, repositoryId: id });
+  const { reviews, loadingReviews, fetchMore } = useReviews({
+    first: 3,
+    repositoryId: id,
+  });
 
   if (loading && loadingReviews) return null;
 
-  const reviewNodes = reviews
-    ? reviews.edges.map(edge => edge.node)
-    : [];
-  
+  const reviewNodes = reviews ? reviews.edges.map((edge) => edge.node) : [];
+
   const onEndReach = () => {
     fetchMore();
   };
@@ -39,7 +40,7 @@ const SingleRepository = () => {
         )}
       />
     </>
-  )
-}
+  );
+};
 
 export default SingleRepository;

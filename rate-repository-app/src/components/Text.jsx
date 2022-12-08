@@ -1,6 +1,6 @@
-import { Text as NativeText, StyleSheet } from 'react-native';
+import { Text as NativeText, StyleSheet } from "react-native";
 
-import theme from '../theme';
+import theme from "../theme";
 
 const styles = StyleSheet.create({
   text: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     fontFamily: theme.fonts.main,
     fontWeight: theme.fontWeights.normal,
     letterSpacing: theme.letterSpacing.normal,
-   },
+  },
   colorPrimary: {
     color: theme.colors.primary,
   },
@@ -42,19 +42,27 @@ const styles = StyleSheet.create({
   },
 });
 
-const Text = ({ color, fontSize, fontWeight, style, marginBottom, textAlign, ...props }) => {
+const Text = ({
+  color,
+  fontSize,
+  fontWeight,
+  style,
+  marginBottom,
+  textAlign,
+  ...props
+}) => {
   const textStyle = [
     styles.text,
-    color === 'textError' && styles.colorTextError,
-    color === 'textAccent' && styles.colorTextAccent,
-    color === 'textSecondary' && styles.colorTextSecondary,
-    color === 'primary' && styles.colorPrimary,
-    color === 'secondary' && styles.colorPrimary,
-    fontSize === 'subheading' && styles.fontSizeSubheading,
-    fontWeight === 'semiBold' && styles.fontWeightSemiBold,
-    fontWeight === 'bold' && styles.fontWeightBold,
-    marginBottom === 'wide' && styles.marginBottomWide,
-    textAlign === 'center' && styles.textAlignCenter,
+    color === "textError" && styles.colorTextError,
+    color === "textAccent" && styles.colorTextAccent,
+    color === "textSecondary" && styles.colorTextSecondary,
+    color === "primary" && styles.colorPrimary,
+    color === "secondary" && styles.colorPrimary,
+    fontSize === "subheading" && styles.fontSizeSubheading,
+    fontWeight === "semiBold" && styles.fontWeightSemiBold,
+    fontWeight === "bold" && styles.fontWeightBold,
+    marginBottom === "wide" && styles.marginBottomWide,
+    textAlign === "center" && styles.textAlignCenter,
     style,
   ];
 

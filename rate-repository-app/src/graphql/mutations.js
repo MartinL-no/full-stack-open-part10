@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN = gql`
   mutation Login($username: String!, $password: String!) {
@@ -13,6 +13,12 @@ export const CREATE_REVIEW = gql`
     createReview(review: $review) {
       repositoryId
     }
+  }
+`;
+
+export const DELETE_REVIEW = gql`
+  mutation DeleteReview($deleteReviewId: ID!) {
+    deleteReview(id: $deleteReviewId)
   }
 `;
 

@@ -8,7 +8,7 @@ const useCreateReview = () => {
   const createReview = async (review) => {
     const reviewObject = {
       ...review,
-      rating: Number(review.rating)
+      rating: Number(review.rating),
     };
     const { data } = await mutate({ variables: { review: reviewObject } });
 
@@ -18,4 +18,4 @@ const useCreateReview = () => {
   return [createReview, result];
 };
 
-export default useCreateReview
+export default useCreateReview;

@@ -1,5 +1,5 @@
-import { View } from 'react-native';
-import Text from '../Text';
+import { View } from "react-native";
+import Text from "../Text";
 
 const RepositoryItemStat = ({ name, stat }) => {
   const convertNumber = (number) => {
@@ -8,13 +8,22 @@ const RepositoryItemStat = ({ name, stat }) => {
       maximumSignificantDigits: 3,
       notation: "compact",
       compactDisplay: "short",
-    }).format(number)
-  }
+    }).format(number);
+  };
 
   return (
     <View>
-      <Text marginBottom='wide' textAlign='center' fontSize='subheading' fontWeight='bold'>{convertNumber(stat)}</Text>
-      <Text marginBottom='wide' textAlign='center' color='textSecondary'>{name}</Text>
+      <Text
+        marginBottom="wide"
+        textAlign="center"
+        fontSize="subheading"
+        fontWeight="bold"
+      >
+        {convertNumber(stat)}
+      </Text>
+      <Text marginBottom="wide" textAlign="center" color="textSecondary">
+        {name}
+      </Text>
     </View>
   );
 };

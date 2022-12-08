@@ -1,15 +1,16 @@
-import { useQuery } from '@apollo/client';
+import { useQuery } from "@apollo/client";
 
-import { GET_REVIEWS } from '../graphql/queries';
+import { GET_REVIEWS } from "../graphql/queries";
 
 const useReviews = (variables) => {
   const { data, loading, fetchMore, ...result } = useQuery(GET_REVIEWS, {
     variables,
-    fetchPolicy: 'cache-and-network',
-  })
+    fetchPolicy: "cache-and-network",
+  });
 
   const handleFetchMore = () => {
-    const canFetchMore = !loading && data?.repository.reviews.pageInfo.hasNextPage;
+    const canFetchMore =
+      !loading && data?.repository.reviews.pageInfo.hasNextPage;
 
     if (!canFetchMore) {
       return;

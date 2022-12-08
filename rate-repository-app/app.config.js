@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import "dotenv/config";
 
 export default {
   name: "rate-repository-app",
@@ -10,28 +10,26 @@ export default {
   splash: {
     image: "./assets/splash.png",
     resizeMode: "contain",
-    backgroundColor: "#ffffff"
+    backgroundColor: "#ffffff",
   },
   updates: {
-    "fallbackToCacheTimeout": 0
+    fallbackToCacheTimeout: 0,
   },
-  assetBundlePatterns: [
-    "**/*"
-  ],
+  assetBundlePatterns: ["**/*"],
   ios: {
-    "supportsTablet": true
+    supportsTablet: true,
   },
   android: {
     adaptiveIcon: {
       foregroundImage: "./assets/adaptive-icon.png",
-      backgroundColor: "#FFFFFF"
-    }
+      backgroundColor: "#FFFFFF",
+    },
   },
   web: {
-    favicon: "./assets/favicon.png"
+    favicon: "./assets/favicon.png",
   },
   extra: {
     env: process.env.ENV,
     apolloUri: process.env.APOLLO_URI,
   },
-}
+};

@@ -1,9 +1,9 @@
-import { View, StyleSheet } from 'react-native';
-import { Formik } from 'formik';
-import * as yup from 'yup';
+import { View, StyleSheet } from "react-native";
+import { Formik } from "formik";
+import * as yup from "yup";
 
-import theme from '../../theme';
-import { SignInForm } from './SignInForm';
+import theme from "../../theme";
+import { SignInForm } from "./SignInForm";
 
 const styles = StyleSheet.create({
   signInContainer: {
@@ -12,21 +12,16 @@ const styles = StyleSheet.create({
 });
 
 const initialValues = {
-  username: '',
-  password: '',
+  username: "",
+  password: "",
 };
 
 const validationSchema = yup.object().shape({
-  username: yup
-    .string()
-    .required('Username is required'),
-  password: yup
-    .string()
-    .required('Password is required'),
+  username: yup.string().required("Username is required"),
+  password: yup.string().required("Password is required"),
 });
 
 const SignInContainer = ({ onSubmit }) => {
-
   return (
     <View style={styles.signInContainer}>
       <Formik

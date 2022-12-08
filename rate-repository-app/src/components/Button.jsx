@@ -10,18 +10,21 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     overflow: "hidden",
     padding: 12,
-    textAlign: "center"
-  }
+    textAlign: "center",
+    flexGrow: 1,
+  },
 });
 
-const FormButton = (props) => {
+const FormButton = ({ style, ...props }) => {
+  const buttonStyle = [styles.button, style];
+
   return (
     <>
-      <Text color="textAccent" fontWeight="bold" style={styles.button}>
+      <Text color="textAccent" fontWeight="bold" style={buttonStyle}>
         {props.children}
       </Text>
     </>
   );
 };
 
-export default FormButton
+export default FormButton;
