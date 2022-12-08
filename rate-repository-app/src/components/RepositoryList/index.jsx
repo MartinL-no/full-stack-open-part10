@@ -9,11 +9,16 @@ const RepositoryList = () => {
   const [searchInput, setSearchInput] = useState('');
   const [searchKeyword] = useDebounce(searchInput, 500)
   const [buttonLabel, setButtonLabel] = useState('Latest repositories');
-  const [repositories] = useRepositories(orderBy, orderDirection, searchKeyword);
+  const { repositories, fetchMore } = useRepositories({ first: 5, orderDirection, orderBy, searchKeyword });
+
+  const onEndReach = () => {
+    fetchMore();
+  };
 
   return (
     <RepositoryListContainer
       repositories={repositories}
+      onEndReach={onEndReach}
       orderBy={orderBy}
       setOrderBy={setOrderBy}
       setOrderDirection={setOrderDirection}

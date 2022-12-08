@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { FlatList, View, StyleSheet, Pressable } from 'react-native';
 import { useNavigate } from 'react-router-native';
 
@@ -21,9 +20,10 @@ const RepositoryListContainer = ({
   setOrderDirection,
   searchInput,
   setSearchInput,
+  buttonLabel,
+  setButtonLabel,
+  onEndReach,
 }) => {
-  const [buttonLabel, setButtonLabel] = useState('Latest repositories');
-
   const navigate = useNavigate();
 
   const repositoryNodes = repositories
@@ -34,12 +34,14 @@ const RepositoryListContainer = ({
     <FlatList
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
       renderItem={({ item }) => (
         <Pressable onPress={() => navigate(`/${item.id}`)}>
           <RepositoryItem item={item} key={item.id} />
         </Pressable>
       )}
-      ListHeaderComponent={(
+      ListHeaderComponent={() => (
         <>
           <RepositoryListPicker
             buttonLabel={buttonLabel}
@@ -53,7 +55,7 @@ const RepositoryListContainer = ({
             setSearchInput={setSearchInput}
           />
         </>
-    )}
+      )}
     />
   );
 };

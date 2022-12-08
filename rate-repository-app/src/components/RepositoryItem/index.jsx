@@ -50,6 +50,9 @@ const styles = StyleSheet.create({
 });
 
 const RepositoryItem = ({ item, gitHubButton }) => {
+
+  if (item === undefined) return null
+  
   return (
     <View style={styles.itemContainer} testID="repositoryItem">
       <View style={styles.headerContainer}>

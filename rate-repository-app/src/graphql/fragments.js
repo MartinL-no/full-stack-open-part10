@@ -5,6 +5,7 @@ export const REPOSITORY_DETAILS = gql`
     id,
     fullName,
     description,
+    createdAt
     language,
     stargazersCount,
     forksCount,
