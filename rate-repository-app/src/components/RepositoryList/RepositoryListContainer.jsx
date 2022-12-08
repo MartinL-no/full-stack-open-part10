@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import { FlatList, View, StyleSheet, Pressable } from 'react-native';
 import { useNavigate } from 'react-router-native';
 
 import { RepositoryListPicker } from './RepositoryListPicker';
 import RepositoryItem from '../RepositoryItem';
-import { useState } from 'react';
+import SearchBar from './SearchBar';
 
 const styles = StyleSheet.create({
   separator: {
@@ -13,7 +14,14 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ repositories, orderBy, setOrderBy, setOrderDirection }) => {
+const RepositoryListContainer = ({
+  repositories,
+  orderBy,
+  setOrderBy,
+  setOrderDirection,
+  searchInput,
+  setSearchInput,
+}) => {
   const [buttonLabel, setButtonLabel] = useState('Latest repositories');
 
   const navigate = useNavigate();
@@ -31,14 +39,20 @@ const RepositoryListContainer = ({ repositories, orderBy, setOrderBy, setOrderDi
           <RepositoryItem item={item} key={item.id} />
         </Pressable>
       )}
-      ListHeaderComponent={() => (
-      <RepositoryListPicker
-        buttonLabel={buttonLabel}
-        setButtonLabel={setButtonLabel}
-        orderBy={orderBy}
-        setOrderBy={setOrderBy}
-        setOrderDirection={setOrderDirection}
-      />
+      ListHeaderComponent={(
+        <>
+          <RepositoryListPicker
+            buttonLabel={buttonLabel}
+            setButtonLabel={setButtonLabel}
+            orderBy={orderBy}
+            setOrderBy={setOrderBy}
+            setOrderDirection={setOrderDirection}
+          />
+          <SearchBar
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+          />
+        </>
     )}
     />
   );
