@@ -6,6 +6,7 @@ import Main from './src/components/Main';
 import createApolloClient from './src/utils/apolloClient';
 import AuthStorage from './src/utils/authStorage';
 import AuthStorageContext from './src/contexts/AuthStorageContext';
+import Text from './src/components/Text';
 
 const authStorage = new AuthStorage();
 const apolloClient = createApolloClient(authStorage);
@@ -16,7 +17,8 @@ const App = () => {
       <ApolloProvider client={apolloClient}>
         <AuthStorageContext.Provider value={authStorage}>
           <PaperProvider>
-            <Main />
+              <Main />
+            <Text>test</Text>
           </PaperProvider>
         </AuthStorageContext.Provider>
       </ApolloProvider>

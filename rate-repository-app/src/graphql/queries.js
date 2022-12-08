@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { REPOSITORY_DETAILS } from './fragments';
+import { REPOSITORY_DETAILS, REVIEW_DETAILS } from './fragments';
 
 export const GET_REPOSITORIES = gql`
   query GetRepositories($first: Int, $after: String, $orderDirection: OrderDirection, $orderBy: AllRepositoriesOrderBy, $searchKeyword: String) {
@@ -40,14 +40,7 @@ export const GET_REVIEWS = gql`
         totalCount
         edges {
           node {
-            id
-            text
-            rating
-            createdAt
-            user {
-              id
-              username
-            }
+            ...ReviewDetails
           }
           cursor
         }
@@ -59,13 +52,29 @@ export const GET_REVIEWS = gql`
       }
     }
   }
+  ${REVIEW_DETAILS}
 `;
 
-export const ME = gql`
-  query {
+export const GET_CURRENT_USER = gql`
+  query getCurrentUser($includeReviews: Boolean = false, $first: Int, $after: String) {
     me {
       id
       username
+      reviewCount
+      reviews(first: $first, after: $after) @include(if: $includeReviews) {
+        edges {
+          node {
+            ...ReviewDetails
+          }
+          cursor
+        }
+        pageInfo {
+          endCursor
+          startCursor
+          hasNextPage
+        }
+      }
     }
   }
+  ${REVIEW_DETAILS}
 `;

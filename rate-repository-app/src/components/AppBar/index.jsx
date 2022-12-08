@@ -43,6 +43,11 @@ const AppBar = () => {
           </Pressable>
         }
         {loginStatus && 
+          <Pressable onPress={() => navigate('/my-reviews')}>
+            <AppBarTab>My reviews</AppBarTab>
+          </Pressable>
+        }
+        {loginStatus && 
           <Pressable onPress={() => handleSignOut()}>
             <AppBarTab>Sign Out</AppBarTab>
           </Pressable>

@@ -14,7 +14,6 @@ const SignIn = () => {
       const { data } = await signIn({ username, password });
 
       if (data) navigate('/');
-      console.log(data);
     } catch (e) {
       console.log(e);
     }

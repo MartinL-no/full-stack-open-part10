@@ -37,7 +37,7 @@ const RepositoryListContainer = ({
       onEndReached={onEndReach}
       onEndReachedThreshold={0.5}
       renderItem={({ item }) => (
-        <Pressable onPress={() => navigate(`/${item.id}`)}>
+        <Pressable onPress={() => navigate(`/repositories/${item.id}`)}>
           <RepositoryItem item={item} key={item.id} />
         </Pressable>
       )}
